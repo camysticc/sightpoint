@@ -1,0 +1,43 @@
+{
+  "_profile_description": "Fast profile — minimal extraction for quick single-image lookups. Turns off everything except EXIF and core OCR.",
+
+  "extract_exif":            true,
+  "extract_text_ocr":        true,
+  "extract_vehicles":        false,
+  "extract_vegetation":      false,
+  "extract_weather":         false,
+  "extract_time_of_day":     false,
+  "extract_language":        false,
+  "extract_infrastructure":  false,
+
+  "reverse_search_enabled":  false,
+  "reverse_search_cache":    true,
+
+  "temporal_analysis":       false,
+  "detect_tampering":        false,
+  "detect_image_age":        false,
+
+  "vehicle_plates_analyzer":        false,
+  "traffic_signs_analyzer":         false,
+  "building_architecture_analyzer": false,
+  "utility_poles_analyzer":         false,
+
+  "auto_save_history":       true,
+  "save_extracted_data":     false,
+  "save_metadata_json":      false,
+
+  "track_personal_accuracy": false,
+
+  "auto_generate_reports":         false,
+  "report_format":                 "pdf",
+  "report_include_evidence":       false,
+  "report_include_contradictions": false,
+
+  "cache_tiles":            true,
+  "cache_reverse_search":   true,
+  "cache_ocr_results":      true,
+  "max_cache_size_mb":      128,
+
+  "flag_sensitive_locations":        true,
+  "require_confirmation_sensitive":  true
+}

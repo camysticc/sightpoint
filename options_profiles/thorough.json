@@ -1,0 +1,43 @@
+{
+  "_profile_description": "Thorough profile — every extractor and analyser enabled. Slower, but gathers the maximum amount of corroborating evidence per image. Recommended for high-stakes or disputed cases.",
+
+  "extract_exif":            true,
+  "extract_text_ocr":        true,
+  "extract_vehicles":        true,
+  "extract_vegetation":      true,
+  "extract_weather":         true,
+  "extract_time_of_day":     true,
+  "extract_language":        true,
+  "extract_infrastructure":  true,
+
+  "reverse_search_enabled":  true,
+  "reverse_search_cache":    true,
+
+  "temporal_analysis":       true,
+  "detect_tampering":        true,
+  "detect_image_age":        true,
+
+  "vehicle_plates_analyzer":        true,
+  "traffic_signs_analyzer":         true,
+  "building_architecture_analyzer": true,
+  "utility_poles_analyzer":         true,
+
+  "auto_save_history":       true,
+  "save_extracted_data":     true,
+  "save_metadata_json":      true,
+
+  "track_personal_accuracy": true,
+
+  "auto_generate_reports":         true,
+  "report_format":                 "pdf",
+  "report_include_evidence":       true,
+  "report_include_contradictions": true,
+
+  "cache_tiles":            true,
+  "cache_reverse_search":   true,
+  "cache_ocr_results":      true,
+  "max_cache_size_mb":      1024,
+
+  "flag_sensitive_locations":        true,
+  "require_confirmation_sensitive":  true
+}
