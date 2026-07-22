@@ -81,7 +81,7 @@ Map tiles are fetched from OpenStreetMap (road/terrain) and Google Maps (satelli
 - Confidence scoring (HIGH / MEDIUM / LOW with percentage)
 - Chain-of-evidence reasoning output
 - Up to 5 labelled visual clue markers per analysis
-
+- 
 **OSINT indicator extraction**
 - Licence plate format and country identification
 - Railway gauge estimation from sleeper spacing
@@ -90,7 +90,15 @@ Map tiles are fetched from OpenStreetMap (road/terrain) and Google Maps (satelli
 - Driving side (LHT / RHT) determination
 - Full OCR of all visible text
 - Sun azimuth and hemisphere estimation
-
+- 
+**Deep Analysis engine (optional)**
+- 15 specialised forensic modules that run in parallel after the main geolocation completes, each voting on a region based on a different category of evidence
+- Covers electoral signage, retail chain footprint, licence plate format forensics, power grid/pylon design, on-screen broadcast branding, cycling infrastructure, tree species and phenology, utility company branding, building construction conventions, cloud/weather patterns, EXIF camera metadata, telecom tower design, street art regional style, comprehensive seasonal analysis, and sign/fixture mounting hardware
+- A Conflict Resolver combines every module's votes with the main geolocation result into a single weighted regional consensus
+- Fully asynchronous — runs in the background without blocking the main analysis or UI
+- Per-image, per-module result caching avoids re-paying the API cost on repeat runs
+- Completely optional — off by default, toggled from the Options panel, with a configurable timeout
+- 
 **AI-determined image enhancement**
 - Gemini analyses each image and identifies quality issues — motion blur, defocus, low contrast, noise, underexposure, overexposure, colour cast, compression artefacts
 - No preset filter — the AI chooses the specific combination and parameters of PIL operations tailored to each image
@@ -100,14 +108,14 @@ Map tiles are fetched from OpenStreetMap (road/terrain) and Google Maps (satelli
 - One-click handoff — apply the enhanced image directly to the main geolocation analysis panel
 - Works on any image: uploaded photos, clipboard pastes, and extracted video frames
 - Fully local processing — Gemini only recommends the operations, PIL executes them on your machine
-
+- 
 **Video frame geolocation**
 - Load a video clip (MP4, AVI, MOV, MKV, WebM, GIF) and extract frames at evenly-spaced intervals using direct timestamp seeking — no slow frame-by-frame scanning
 - Every extracted frame is analysed in parallel, not sequentially, so a full set of frames comes back in roughly the time a single image would take
 - Optional **deep analysis mode** — a significantly extended prompt tuned to discriminate between visually similar cities (e.g. Manchester vs Liverpool) using bus livery, tram overhead wires, waterfront architecture, football club colours, and calibrated confidence scoring that won't claim high certainty without a specific identifiable landmark
 - **Direction of travel** estimation — compares the first and last extracted frames to infer movement type, speed, compass heading, and route clues
 - Per-frame result badges (location + confidence, and in deep mode, bus/tram/football clues) shown directly on the thumbnail grid
-
+- 
 **Embedded interactive map**
 - Four tile layers: Road (dark-themed OSM), Satellite, Hybrid, Terrain
 - Pan, zoom (scroll wheel or buttons), crosshair
@@ -115,21 +123,27 @@ Map tiles are fetched from OpenStreetMap (road/terrain) and Google Maps (satelli
 - Heatmap overlay of weighted candidate locations
 - Distance ruler tool
 - Coordinate display on mouse hover
-
+- 
 **EXIF analysis**
 - Extracts GPS coordinates, camera make/model, and timestamp
 - Uses embedded GPS as strong prior for the AI analysis
 - Displays EXIF data in the results panel
-
+- 
+**Options & Theme system**
+- Settings dropdown in the header with three screens: Options, API Key, and Theme
+- Every data-extraction and logging toggle organised into collapsible categories, saved immediately to a profile file — no separate save step
+- Five built-in themes (Cyber Dark, Light Mode, Solarized Dark, Midnight Purple, High Contrast) plus unlimited custom ones, each just a `.py` file you can copy and edit
+- Full custom colour picker for every UI role and font family/size controls, applied live with no restart needed
+- Ready-made settings profiles (fast, thorough, ethical) for different use cases
+- 
 **History and logging**
-- Session sidebar with colour-coded confidence indicators
+- History tab with sortable table and detail panel
 - Click any past session to reload result and image
 - Full CSV history log saved automatically to your home directory
-- History tab with sortable table and detail panel
 - One-click coordinate copy to clipboard
-
+- 
 **Interface**
-- Fully self-contained tkinter UI with a live theme system (see below) — five built-in themes plus unlimited custom ones
+- Fully self-contained tkinter UI with a live theme system — five built-in themes plus unlimited custom ones
 - HUD showing uptime, analysis count, and system status
 - Terminal console with timestamped log output
 - Pan/zoom viewer for the uploaded image
