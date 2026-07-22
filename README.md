@@ -297,6 +297,30 @@ sightpoint/
 │   ├── __init__.py       ← package marker
 │   ├── enhance.py        ← AI image enhancement cog
 │   └── video.py          ← video frame analysis cog
+├── image_engine/
+│   ├── __init__.py            ← entry point, documents scope decisions
+│   ├── core.py                 ← orchestrator + Conflict Resolver
+│   ├── cache.py                 ← per-image, per-module result caching
+│   ├── gemini_helper.py          ← shared Gemini call + JSON repair
+│   ├── lookup_tables.py          ← regional reference data (starter/example)
+│   ├── modules/
+│   │   ├── __init__.py
+│   │   ├── electoral_signage.py
+│   │   ├── retail_footprint.py
+│   │   ├── plate_forensics.py
+│   │   ├── grid_analysis.py
+│   │   ├── screen_branding.py
+│   │   ├── bicycle_analysis.py
+│   │   ├── tree_phenology.py
+│   │   ├── utility_billing.py
+│   │   ├── building_codes.py
+│   │   ├── cloud_analysis.py
+│   │   ├── sensor_analysis.py
+│   │   ├── tower_analysis.py
+│   │   ├── graffiti_analysis.py
+│   │   ├── phenology_comprehensive.py
+│   │   └── mounting_forensics.py
+│   └── results/           ← cached module results (created on first run)
 ├── options/
 │   ├── __init__.py       ← thread-safe load/save/get/set for options_profiles/
 │   ├── settings.py       ← DEFAULT_OPTIONS, CSV headers, metadata schema
